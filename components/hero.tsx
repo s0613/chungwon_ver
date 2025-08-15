@@ -55,41 +55,58 @@ export default function Hero() {
 
       {/* Mobile overlay for better text readability */}
       {isMobile && (
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-[1]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent z-[1]" />
       )}
 
       {/* Left Bottom Description */}
       <div className={`absolute z-10 text-white ${
         isMobile 
-          ? "bottom-8 left-6 right-6 text-center" 
+          ? "bottom-6 left-4 right-4 text-center" 
           : "bottom-12 left-12"
       }`}>
         <div className={`flex flex-col ${
           isMobile ? "items-center" : "items-start"
         }`}>
-          <h1 className={`font-bold mb-2 leading-tight ${
-            isMobile ? "text-2xl" : "text-4xl"
+          <h1 className={`font-bold mb-3 leading-tight ${
+            isMobile ? "text-2xl sm:text-3xl" : "text-4xl"
           }`}>
             {heroDescriptions[currentImageIndex].text}
           </h1>
-          <h1 className={`font-semibold mb-4 ${
-            isMobile ? "text-xl" : "text-3xl"
+          <h2 className={`font-semibold mb-6 ${
+            isMobile ? "text-lg sm:text-xl" : "text-3xl"
           }`}>
             {heroDescriptions[currentImageIndex].company}
-          </h1>
+          </h2>
           <Link href={currentImageIndex === 0 ? "/company" : currentImageIndex === 1 ? "/products" : "/esg"}>
             <Button
               variant="outline"
-              className={`bg-transparent border-none text-white font-bold px-8 py-3 text-lg rounded-full transition-all duration-300 hover:text-gray-300 flex items-center justify-center gap-2 ${
-                isMobile ? "w-full max-w-xs" : ""
+              className={`bg-white/10 backdrop-blur-sm border-white/30 text-white font-bold px-6 py-3 text-base sm:text-lg rounded-full transition-all duration-300 hover:bg-white/20 hover:border-white/50 flex items-center justify-center gap-2 ${
+                isMobile ? "w-full max-w-sm shadow-lg" : ""
               }`}
             >
-              <Image src="/arrow.svg" alt="Arrow" width={24} height={24} />
+              <Image src="/arrow.svg" alt="Arrow" width={20} height={20} className="w-5 h-5 sm:w-6 sm:h-6" />
               {heroDescriptions[currentImageIndex].buttonText}
             </Button>
           </Link>
         </div>
       </div>
+
+      {/* Mobile indicator dots */}
+      {isMobile && (
+        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-10 flex space-x-2">
+          {heroImages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentImageIndex(index)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                index === currentImageIndex 
+                  ? "bg-white w-6" 
+                  : "bg-white/50"
+              }`}
+            />
+          ))}
+        </div>
+      )}
     </section>
   )
 }
