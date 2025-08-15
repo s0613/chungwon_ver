@@ -1,0 +1,87 @@
+"use client";
+import { useEffect, useMemo, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+
+const CATEGORIES = [
+  { key: "all",   label: "전체" },
+  { key: "raw",   label: "원두" },
+  { key: "powder",label: "전분·가루" },
+  { key: "ready", label: "간편식품" },
+  { key: "sauce", label: "소스·육수" },
+] as const;
+
+export default function ProductsTabbed() {
+  const router = useRouter();
+  const pathname = usePathname();
+  const sp = useSearchParams();
+
+  const fromUrl = sp.get("cat") ?? "all";
+  const [active, setActive] = useState<string>(fromUrl);
+
+  useEffect(() => {
+    if (fromUrl !== active) setActive(fromUrl);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fromUrl]);
+
+  const onSelect = (key: string) => {
+    setActive(key);
+    const q = new URLSearchParams(sp.toString());
+    q.set("cat", key);
+    router.replace(`${pathname}?${q.toString()}`, { scroll: true });
+  };
+
+  // 아직 데이터가 없으므로 카테고리별로 같은 빈 레이아웃을 보여줌
+  const Content = useMemo(() => <EmptyGrid category={active} />, [active]);
+
+  return (
+    <>
+      {/* pill tabs */}
+      <div className="w-full bg-white">
+        <div className="mx-auto max-w-[1200px] px-6">
+          <div className="flex items-center justify-center py-6">
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#EFF2F5] px-2 py-2">
+              {CATEGORIES.map((c) => {
+                const isActive = active === c.key;
+                return (
+                  <button
+                    key={c.key}
+                    onClick={() => onSelect(c.key)}
+                    className={[
+                      "px-6 h-[48px] rounded-full text-[18px] font-semibold tracking-[-0.01em] transition",
+                      isActive
+                        ? "bg-emerald-500 text-white shadow-[0_2px_0_rgba(0,0,0,0.04)]"
+                        : "text-[#2E3A49] hover:text-slate-900",
+                    ].join(" ")}
+                    aria-current={isActive ? "page" : undefined}
+                  >
+                    {c.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* content area */}
+      {Content}
+    </>
+  );
+}
+
+function EmptyGrid({ category }: { category: string }) {
+  return (
+    <section className="bg-white">
+      <div className="mx-auto max-w-[1200px] px-6 pt-10 pb-24">
+        {/* 향후 카드가 들어올 그리드 영역: 지금은 빈 상태 */}
+        <div className="min-h-[420px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 place-items-center">
+          <div className="col-span-full w-full rounded-2xl border border-dashed border-slate-300 py-20 text-center text-slate-400">
+            <p className="text-[16px] md:text-[18px]">
+              '{category}' 카테고리의 제품이 여기에 표시됩니다. (데이터 연결 전, 레이아웃만 구성)
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
