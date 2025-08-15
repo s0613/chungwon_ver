@@ -11,34 +11,34 @@ function CompanyLocation() {
 
   return (
     <section className="bg-white">
-      <div className="mx-auto max-w-[1200px] px-6 pt-10 pb-16">
+      <div className="mx-auto max-w-[1200px] px-4 sm:px-6 pt-6 sm:pt-10 pb-12 sm:pb-16">
         {/* 지도 임베드 */}
-        <div className="w-full mx-auto rounded-2xl overflow-hidden">
+        <div className="w-full mx-auto rounded-xl sm:rounded-2xl overflow-hidden">
           <iframe
             title="오시는 길 - 네이버 지도"
             src={NAVER_MAP_IFRAME_URL}
-            className="w-full h-[520px] md:h-[600px] border-0"
+            className="w-full h-[300px] sm:h-[400px] md:h-[520px] lg:h-[600px] border-0"
             style={{ border: "none" }}
             loading="lazy"
           />
         </div>
 
         {/* 주소 / 연락처 */}
-        <div className="mt-8 max-w-[900px] mx-auto">
-          <div className="space-y-6">
+        <div className="mt-6 sm:mt-8 max-w-[900px] mx-auto">
+          <div className="space-y-4 sm:space-y-6">
             <div>
-              <h3 className="text-[18px] md:text-[20px] font-bold text-slate-900">
+              <h3 className="text-[16px] sm:text-[18px] md:text-[20px] font-bold text-slate-900">
                 주소
               </h3>
-              <p className="mt-2 text-[18px] md:text-[20px] text-slate-900">
+              <p className="mt-2 text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] text-slate-900 leading-relaxed">
                 인천광역시 남동구 능허대로 625번길 118 (주)청원농산
               </p>
             </div>
             <div>
-              <h3 className="text-[18px] md:text-[20px] font-bold text-slate-900">
+              <h3 className="text-[16px] sm:text-[18px] md:text-[20px] font-bold text-slate-900">
                 전화번호
               </h3>
-              <p className="mt-2 text-[18px] md:text-[20px] text-slate-900">
+              <p className="mt-2 text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] text-slate-900 leading-relaxed">
                 032-818-4168
               </p>
             </div>
@@ -51,9 +51,9 @@ function CompanyLocation() {
 function CompanyInquiry() {
   return (
     <section className="bg-white">
-      <div className="mx-auto max-w-[1200px] px-6 py-12">
-        <h2 className="text-2xl font-bold text-slate-900">문의</h2>
-        <p className="mt-4 text-slate-600">문의 폼 또는 연락처가 여기에 들어갑니다.</p>
+      <div className="mx-auto max-w-[1200px] px-4 sm:px-6 py-8 sm:py-12">
+        <h2 className="text-xl sm:text-2xl font-bold text-slate-900">문의</h2>
+        <p className="mt-3 sm:mt-4 text-sm sm:text-base text-slate-600">문의 폼 또는 연락처가 여기에 들어갑니다.</p>
       </div>
     </section>
   );
@@ -109,9 +109,10 @@ export default function CompanyTabbed() {
     <>
       {/* Tabs (Figma pill style) */}
       <div className="w-full bg-white">
-        <div className="mx-auto max-w-[1200px] px-6">
-          <div className="flex items-center justify-center py-6">
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#EFF2F5] px-2 py-2">
+        <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
+          <div className="flex items-center justify-center py-4 sm:py-6">
+            {/* 모바일에서는 세로 스크롤, 데스크톱에서는 가로 배치 */}
+            <div className="inline-flex items-center gap-1 sm:gap-2 rounded-full bg-[#EFF2F5] px-1 sm:px-2 py-1 sm:py-2 overflow-x-auto max-w-full">
               {TABS.map((t) => {
                 const activeTab = active === t.key;
                 return (
@@ -119,7 +120,7 @@ export default function CompanyTabbed() {
                     key={t.key}
                     onClick={() => onSelect(t.key)}
                     className={[
-                      "px-6 h-[48px] rounded-full text-[18px] font-semibold tracking-[-0.01em] transition shadow-none",
+                      "px-3 sm:px-4 md:px-6 h-[40px] sm:h-[44px] md:h-[48px] rounded-full text-[14px] sm:text-[16px] md:text-[18px] font-semibold tracking-[-0.01em] transition shadow-none whitespace-nowrap flex-shrink-0",
                       activeTab
                         ? "bg-emerald-500 text-white shadow-[0_2px_0_rgba(0,0,0,0.04)]"
                         : "text-[#2E3A49] hover:text-slate-900",

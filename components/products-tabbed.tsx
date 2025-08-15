@@ -37,9 +37,9 @@ export default function ProductsTabbed() {
     <>
       {/* pill tabs */}
       <div className="w-full bg-white">
-        <div className="mx-auto max-w-[1200px] px-6">
-          <div className="flex items-center justify-center py-6">
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#EFF2F5] px-2 py-2">
+        <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
+          <div className="flex items-center justify-center py-4 sm:py-6">
+            <div className="inline-flex items-center gap-1 sm:gap-2 rounded-full bg-[#EFF2F5] px-1 sm:px-2 py-1 sm:py-2 overflow-x-auto max-w-full">
               {CATEGORIES.map((c) => {
                 const isActive = active === c.key;
                 return (
@@ -47,7 +47,7 @@ export default function ProductsTabbed() {
                     key={c.key}
                     onClick={() => onSelect(c.key)}
                     className={[
-                      "px-6 h-[48px] rounded-full text-[18px] font-semibold tracking-[-0.01em] transition",
+                      "px-3 sm:px-4 md:px-6 h-[40px] sm:h-[44px] md:h-[48px] rounded-full text-[14px] sm:text-[16px] md:text-[18px] font-semibold tracking-[-0.01em] transition whitespace-nowrap flex-shrink-0",
                       isActive
                         ? "bg-emerald-500 text-white shadow-[0_2px_0_rgba(0,0,0,0.04)]"
                         : "text-[#2E3A49] hover:text-slate-900",
@@ -72,11 +72,11 @@ export default function ProductsTabbed() {
 function EmptyGrid({ category }: { category: string }) {
   return (
     <section className="bg-white">
-      <div className="mx-auto max-w-[1200px] px-6 pt-10 pb-24">
+      <div className="mx-auto max-w-[1200px] px-4 sm:px-6 pt-6 sm:pt-10 pb-16 sm:pb-24">
         {/* 향후 카드가 들어올 그리드 영역: 지금은 빈 상태 */}
-        <div className="min-h-[420px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 place-items-center">
-          <div className="col-span-full w-full rounded-2xl border border-dashed border-slate-300 py-20 text-center text-slate-400">
-            <p className="text-[16px] md:text-[18px]">
+        <div className="min-h-[300px] sm:min-h-[420px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 place-items-center">
+          <div className="col-span-full w-full rounded-xl sm:rounded-2xl border border-dashed border-slate-300 py-12 sm:py-20 text-center text-slate-400">
+            <p className="text-[14px] sm:text-[16px] md:text-[18px] px-4">
               '{category}' 카테고리의 제품이 여기에 표시됩니다. (데이터 연결 전, 레이아웃만 구성)
             </p>
           </div>
