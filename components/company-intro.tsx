@@ -29,15 +29,14 @@ export default function CompanyIntro() {
         {/* 상단 작은 이미지: 560x420 카드 */}
         <div className="mt-4 sm:mt-6">
           <div className="relative w-full max-w-[560px] h-[200px] sm:h-[280px] md:h-[350px] lg:h-[420px] rounded-xl sm:rounded-2xl bg-slate-200/70 shadow-sm">
-            {/* 실제 이미지 연결 시 <Image fill … /> 로 교체 */}
-            <div className="absolute inset-0 grid place-items-center text-slate-400 text-sm sm:text-base">
-              <span className="text-center">
-                <span className="block sm:hidden">200×200</span>
-                <span className="hidden sm:block md:hidden">280×280</span>
-                <span className="hidden md:block lg:hidden">350×350</span>
-                <span className="hidden lg:block">560×420</span>
-              </span>
-            </div>
+            <Image
+              src="/chungwon3.png"
+              alt="청원농산 소개 이미지"
+              fill
+              className="object-cover rounded-xl sm:rounded-2xl"
+              sizes="(min-width:1024px) 560px, (min-width:768px) 350px, (min-width:640px) 280px, 200px"
+              priority
+            />
           </div>
         </div>
 

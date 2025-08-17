@@ -13,7 +13,7 @@ export default function CompanyTabs() {
                 <button
                   key={t}
                   className={[
-                    "px-2 py-2.5 rounded-lg text-[10px] sm:text-[11px] font-semibold tracking-[-0.01em] transition text-center",
+                    "px-2 py-2.5 rounded-lg text-[10px] sm:text-[11px] font-extrabold tracking-[-0.01em] transition text-center",
                     active
                       ? "bg-emerald-500 text-white shadow-[0_2px_0_rgba(0,0,0,0.04)]"
                       : "bg-[#EFF2F5] text-slate-700 hover:text-slate-900",
@@ -33,7 +33,7 @@ export default function CompanyTabs() {
                 <button
                   key={t}
                   className={[
-                    "px-4 sm:px-5 h-[38px] sm:h-[42px] rounded-full text-[13px] sm:text-[14px] md:text-[15px] font-semibold tracking-[-0.01em] transition whitespace-nowrap",
+                    "px-4 sm:px-5 h-[38px] sm:h-[42px] rounded-full text-[13px] sm:text-[14px] md:text-[15px] font-extrabold tracking-[-0.01em] transition whitespace-nowrap",
                     active
                       ? "bg-emerald-500 text-white shadow-[0_2px_0_rgba(0,0,0,0.04)]"
                       : "text-slate-700 hover:text-slate-900",

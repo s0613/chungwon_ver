@@ -16,7 +16,7 @@ export default function CompanyCEO() {
     <section className="bg-white">
       <div className="mx-auto max-w-[1200px] px-6 pt-10 pb-16">
         {/* 섹션 제목 - 중앙정렬 */}
-        <h2 className="text-center text-[22px] md:text-[24px] font-extrabold tracking-[-0.02em] text-slate-900">
+        <h2 className="text-center text-[20px] sm:text-[22px] md:text-[24px] lg:text-[26px] font-extrabold tracking-[-0.02em] text-slate-900">
           (주)청원농산은 자연의 순수함과 전통의 깊이를 담아, 정직한 식품을 위해 노력하고 있습니다.
         </h2>
 
@@ -26,8 +26,8 @@ export default function CompanyCEO() {
           <div className="justify-self-center md:justify-self-end">
             <div className="relative w-[300px] h-[300px] md:w-[360px] md:h-[360px] rounded-2xl bg-slate-200/70 overflow-hidden shadow-sm">
               <Image
-                src="/ceo-placeholder.png"   // /public 경로에 파일이 없으면 placeholder.svg 복사해 두세요
-                alt="CEO"
+                src="/ceohello.png"
+                alt="CEO 인사말"
                 fill
                 sizes="(min-width:768px) 360px, 300px"
                 className="object-cover"
@@ -37,16 +37,13 @@ export default function CompanyCEO() {
           </div>
 
           {/* Right: 텍스트 박스 (가운데 정렬 컨테이너 + 가독성 위해 내부 텍스트는 좌정렬 유지) */}
-          <article
-            className="justify-self-start md:justify-self-start md:max-w-[681px] mx-auto"
-            style={{ fontFamily: "Roboto, system-ui, -apple-system, Segoe UI, Noto Sans KR, sans-serif" }}
-          >
-            <div className="space-y-6 text-[#111827] md:text-[32px] md:leading-[48px] text-[18px] leading-[30px] tracking-[0] text-left">
+          <article className="justify-self-start md:justify-self-start md:max-w-[681px] mx-auto">
+            <div className="space-y-6 text-[#4B5563] text-[16px] sm:text-[18px] md:text-[20px] leading-[1.6] sm:leading-8 text-left">
               {paragraphs.map((p, i) => (
                 <p key={i} className="whitespace-pre-line">{p}</p>
               ))}
               {/* 서명 - 복원 & 표시 보장 (중앙정렬 요구에 맞춰 center) */}
-              <p className="md:text-[32px] md:leading-[48px] text-[18px] leading-[30px] text-center font-normal mt-4">
+              <p className="text-[16px] sm:text-[18px] md:text-[20px] leading-[1.6] sm:leading-8 text-center font-normal mt-4 text-[#4B5563]">
                 (주)청원농산 대표이사 최종환
               </p>
             </div>

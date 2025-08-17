@@ -5,7 +5,7 @@ export default function CompanyHero() {
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <Image
-        src="/placeholder.svg?height=800&width=1200&text=Panoramic+Landscape+with+Green+Fields+and+Mountains"
+        src="/companyinfo.png"
         alt="청원농산 배경"
         fill
         className="object-cover"
