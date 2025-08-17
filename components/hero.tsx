@@ -80,11 +80,24 @@ export default function Hero() {
           <Link href={currentImageIndex === 0 ? "/company" : currentImageIndex === 1 ? "/products" : "/esg"}>
             <Button
               variant="outline"
-              className={`bg-white/10 backdrop-blur-sm border-white/30 text-white font-bold px-6 py-3 text-base sm:text-lg rounded-full transition-all duration-300 hover:bg-white/20 hover:border-white/50 flex items-center justify-center gap-2 ${
+              className={`group bg-white/10 backdrop-blur-sm border-white/30 text-white font-bold px-6 py-3 text-base sm:text-lg rounded-full transition-all duration-300 hover:bg-white/20 hover:border-white/50 flex items-center justify-center gap-2 ${
                 isMobile ? "w-full max-w-sm shadow-lg" : ""
               }`}
             >
-              <Image src="/arrow.svg" alt="Arrow" width={20} height={20} className="w-5 h-5 sm:w-6 sm:h-6" />
+              <Image 
+                src="/arrow.svg" 
+                alt="Arrow" 
+                width={20} 
+                height={20} 
+                className="w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300 group-hover:hidden" 
+              />
+              <Image 
+                src="/arrow_black.svg" 
+                alt="Arrow Black" 
+                width={20} 
+                height={20} 
+                className="w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300 hidden group-hover:block" 
+              />
               {heroDescriptions[currentImageIndex].buttonText}
             </Button>
           </Link>
