@@ -6,21 +6,20 @@ import CompanyCEO from "@/components/company-ceo";
 import CompanyHistory from "@/components/company-history";
 
 function CompanyLocation() {
-  const NAVER_MAP_IFRAME_URL =
-    "https://map.naver.com/p/search/%EC%B2%AD%EC%9B%90%EB%86%8D%EC%82%B0/place/32812069?placePath=/home?entry=pll&from=map&fromNxList=true&fromPanelNum=2&timestamp=202508120205&locale=ko&svcName=map_pcv5&searchText=%EC%B2%AD%EC%9B%90%EB%86%8D%EC%82%B0&searchType=place&c=15.04,0,0,0,dh";
-
-  const ADDRESS_TEXT = "인천광역시 남동구 능허대로 625번길 118 (주)청원농산";
+  const ADDRESS_ONLY = "인천광역시 남동구 능허대로 625번길 118";
+  const ADDRESS_TEXT = `${ADDRESS_ONLY} (주)청원농산`;
   const TEL = "032-818-4168";
+  const NAVER_MAP_IFRAME_URL = `https://map.naver.com/p/search/${encodeURIComponent(ADDRESS_ONLY)}`;
+  const GOOGLE_MAP_IFRAME_URL = `https://www.google.com/maps?q=${encodeURIComponent(ADDRESS_ONLY)}&z=15&output=embed`;
 
-  const [isMapInteractive, setIsMapInteractive] = useState(false);
   const [directionsUrl, setDirectionsUrl] = useState<string>("");
 
   useEffect(() => {
     const ua = typeof navigator !== "undefined" ? navigator.userAgent || "" : "";
     const isIOS = /iPhone|iPad|iPod/i.test(ua);
     const url = isIOS
-      ? `https://maps.apple.com/?q=${encodeURIComponent(ADDRESS_TEXT)}`
-      : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS_TEXT)}`;
+      ? `https://maps.apple.com/?q=${encodeURIComponent(ADDRESS_ONLY)}`
+      : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS_ONLY)}`;
     setDirectionsUrl(url);
   }, []);
 
@@ -29,30 +28,27 @@ function CompanyLocation() {
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6 pt-6 sm:pt-10 pb-12 sm:pb-16">
         {/* 지도 임베드 */}
         <div className="relative w-full mx-auto overflow-hidden -mx-4 sm:mx-0 rounded-none sm:rounded-2xl">
+          {/* 모바일: 가벼운 Google 지도 임베드 */}
           <iframe
-            title="오시는 길 - 네이버 지도"
-            src={NAVER_MAP_IFRAME_URL}
-            className={[
-              "w-full h-[360px] sm:h-[440px] md:h-[520px] lg:h-[600px] border-0",
-              !isMapInteractive ? "pointer-events-none select-none" : "pointer-events-auto",
-            ].join(" ")}
+            title="오시는 길 - 지도"
+            src={GOOGLE_MAP_IFRAME_URL}
+            className="md:hidden w-full h-[320px] sm:h-[360px] border-0"
             style={{ border: "none" }}
             loading="lazy"
             allowFullScreen
             referrerPolicy="no-referrer-when-downgrade"
           />
 
-          {/* 모바일: 지도 인터랙션 해제 오버레이 */}
-          {!isMapInteractive && (
-            <button
-              type="button"
-              aria-label="지도를 조작하려면 탭하세요"
-              onClick={() => setIsMapInteractive(true)}
-              className="absolute inset-0 md:hidden bg-gradient-to-t from-black/25 to-transparent text-white text-[13px] font-medium flex items-end justify-center pb-4"
-            >
-              지도를 조작하려면 탭하세요
-            </button>
-          )}
+          {/* 데스크톱: 네이버 지도 유지 */}
+          <iframe
+            title="오시는 길 - 네이버 지도"
+            src={NAVER_MAP_IFRAME_URL}
+            className="hidden md:block w-full h-[440px] md:h-[520px] lg:h-[600px] border-0"
+            style={{ border: "none" }}
+            loading="lazy"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </div>
 
         {/* 모바일 빠른 실행 버튼 */}
