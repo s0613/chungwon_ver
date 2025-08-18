@@ -7,6 +7,8 @@ type FeatureProps = {
   body: string[];
   imagePosition?: "left" | "right";
   textAlign?: "left" | "center"; // NEW: control text alignment per section
+  imageSrc: string; // NEW: image source prop
+  imageAlt: string; // NEW: image alt text prop
 };
 
 function FeatureBlock({
@@ -14,6 +16,8 @@ function FeatureBlock({
   body,
   imagePosition = "left",
   textAlign = "left",
+  imageSrc,
+  imageAlt,
 }: FeatureProps) {
   const isCenter = textAlign === "center";
 
@@ -27,8 +31,8 @@ function FeatureBlock({
       "
     >
       <Image
-        src="/placeholder.svg"
-        alt={`${title} 이미지`}
+        src={imageSrc}
+        alt={imageAlt}
         fill
         className="object-cover"
         sizes="(min-width:1024px) 560px, 100vw"
@@ -115,6 +119,8 @@ export default function TrustedFoodCompany() {
       <FeatureBlock
         title="식품의 안전한 품질관리"
         imagePosition="left"
+        imageSrc="/productmanage.png"
+        imageAlt="식품 품질관리 시스템 - 청원농산의 체계적인 품질관리 프로세스"
         body={[
           "(주)청원농산은 원재료의 입고부터 생산, 포장, 출고에 이르기까지 전 공정을 체계적으로 관리하는 기업입니다. 고객님들께 안전하고 위생적인 식품을 제공하기 위해 최선을 다하고 있습니다.",
           "모든 식품 재료를 위생적이고 인증된 공급처로부터 조달하며, 입고 시 검수와 샘플 테스트를 통해 기준을 충족한 원재료만을 사용합니다. 제조 과정에서 위생관리, 작업자 개인 위생, 공정 중 온도와 습도 관리를 철저히 시행하여, 식품의 품질이 항상 일정하고 안전하게 유지되도록 합니다.",
@@ -128,6 +134,8 @@ export default function TrustedFoodCompany() {
         title="친환경 생산"
         imagePosition="right"
         textAlign="left"   // Changed to left alignment
+        imageSrc="/goodproduct.png"
+        imageAlt="친환경 식품 생산 - 자연에서 온 건강한 도토리 등 천연 식재료"
         body={[
           "(주)청원농산은 자연과의 조화를 최우선 가치로 삼고, 환경을 해치지 않는 방식으로 식품을 생산하는 것이 진정한 지속가능한 미래를 만든다고 믿습니다. 따라서 원재료의 선택부터 포장재의 선택, 생산 공정까지 모든 단계에서 친환경 원칙을 철저히 준수하고 있습니다.",
           "제조과정에서는 에너지 절약형 설비, 폐수·폐기물 저감 기술을 도입해 탄소 발자국을 최소화하고 있습니다. 생산 이후에도 우리는 재활용 가능한 친환경 포장재를 적용해 환경에 대한 부담을 덜고자 노력하고 있습니다.",
@@ -140,6 +148,8 @@ export default function TrustedFoodCompany() {
       <FeatureBlock
         title="혁신적 연구개발"
         imagePosition="left"
+        imageSrc="/productdevelop.png"
+        imageAlt="혁신적 연구개발 - 청원농산의 식품 연구개발 시설과 기술"
         body={[
           "(주)청원농산은 수백 년간 이어온 한국 전통푸드의 지혜와 건강함을 현대 식문화 속에서 재해석하고자 끊임없는 연구개발에 집중하고 있습니다.",
           "단순한 재현을 넘어, 전통 식재료와 조리법을 기반으로 현대인의 라이프스타일에 맞는 고부가가치 제품을 개발하고 있으며, 과학적 분석과 데이터 기반의 품질 개선을 통해 기능성과 편의성, 안전성까지 모두 갖춘 제품으로 발전시키고 있습니다.",

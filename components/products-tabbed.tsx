@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 const CATEGORIES = [
-  { key: "all",   label: "전체" },
+
   { key: "raw",   label: "원두" },
   { key: "powder",label: "전분·가루" },
   { key: "ready", label: "간편식품" },
@@ -15,7 +15,7 @@ export default function ProductsTabbed() {
   const pathname = usePathname();
   const sp = useSearchParams();
 
-  const fromUrl = sp.get("cat") ?? "all";
+  const fromUrl = sp.get("cat") ?? "raw";
   const [active, setActive] = useState<string>(fromUrl);
 
   useEffect(() => {

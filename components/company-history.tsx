@@ -18,32 +18,31 @@ export default function CompanyHistory() {
     <section className="bg-white">
       <div className="mx-auto max-w-[1200px] px-6 pt-10 pb-16">
         {/* 제목 - 중앙정렬 */}
-        <h2 className="text-center text-[26px] md:text-[32px] font-extrabold leading-[1.25] tracking-[-0.02em] text-slate-900">
+        <h2 className="text-center text-[20px] sm:text-[22px] md:text-[24px] lg:text-[26px] font-extrabold tracking-[-0.02em] text-slate-900">
           (주)청원농산의 걸어온 길, 다가갈 미래,<br className="hidden md:block" />
           전통과 혁신이 함께한 우리의 여정
         </h2>
 
-        {/* 중앙 배치된 타임라인 컨테이너 (폭을 살짝 좁혀 가운데 고정) */}
-        <div className="mt-10 md:mt-12 mx-auto max-w-[900px]">
+        {/* 중앙 배치된 타임라인 컨테이너 */}
+        <div className="mt-8 md:mt-12 mx-auto max-w-[900px]">
           <div className="space-y-6 md:space-y-7">
             {items.map((it, idx) => (
               <div
                 key={idx}
-                className="grid items-baseline grid-cols-[97px_60px_1fr] gap-x-[77px]"
+                className="grid items-baseline grid-cols-[97px_60px_1fr] gap-x-[77px] justify-items-center"
               >
-                {/* YEAR — Roboto Bold 42 / LH 49 / #013C21 */}
+                {/* YEAR - company-ceo와 동일한 스타일 적용 */}
                 <div
-                  className="w-[97px] font-bold tabular-nums text-[24px] leading-[32px] md:text-[42px] md:leading-[49px]"
-                  style={{ color: "#013C21", fontFamily: "Roboto, system-ui, -apple-system, Segoe UI, Noto Sans KR, sans-serif" }}
+                  className="w-[97px] font-extrabold tabular-nums text-[20px] sm:text-[22px] md:text-[24px] lg:text-[26px] leading-[1.25] tracking-[-0.02em] text-slate-900"
                 >
                   {it.year}
                 </div>
-                {/* MONTH */}
-                <div className="tabular-nums text-slate-900 font-bold text-[20px] leading-[30px] md:text-[28px] md:leading-[36px]">
+                {/* MONTH - company-ceo와 동일한 스타일 적용 */}
+                <div className="tabular-nums text-slate-900 font-extrabold text-[20px] sm:text-[22px] md:text-[24px] lg:text-[26px] leading-[1.25] tracking-[-0.02em]">
                   {it.month}
                 </div>
-                {/* TEXT */}
-                <div className="text-slate-900 text-[18px] leading-[30px] md:text-[20px] md:leading-[32px]">
+                {/* TEXT - company-ceo와 동일한 스타일 적용 */}
+                <div className="text-[#4B5563] text-[16px] sm:text-[18px] md:text-[20px] leading-[1.6] sm:leading-8">
                   {it.text}
                 </div>
               </div>

@@ -10,7 +10,7 @@ const menuItems = [
   { name: "기업소개", href: "/company" },
   { name: "제품소개", href: "/products" },
   { name: "지속가능경영", href: "/esg" },
-  { name: "고객센터", href: "#" },
+  { name: "고객센터", href: "/customer-service" },
 ]
 
 export default function Header() {

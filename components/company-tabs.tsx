@@ -1,5 +1,5 @@
 "use client";
-const tabs = ["청원농산 소개","CEO 인사말","연혁","오시는 길","문의"];
+const tabs = ["청원농산 소개","CEO 인사말","연혁","오시는 길"];
 export default function CompanyTabs() {
   return (
     <div className="w-full bg-white">
@@ -13,7 +13,7 @@ export default function CompanyTabs() {
                 <button
                   key={t}
                   className={[
-                    "px-2 py-2.5 rounded-lg text-[10px] sm:text-[11px] font-extrabold tracking-[-0.01em] transition text-center",
+                    "px-2 py-2.5 rounded-lg text-[10px] sm:text-[11px] font-semibold tracking-[-0.01em] transition text-center",
                     active
                       ? "bg-emerald-500 text-white shadow-[0_2px_0_rgba(0,0,0,0.04)]"
                       : "bg-[#EFF2F5] text-slate-700 hover:text-slate-900",
@@ -26,17 +26,17 @@ export default function CompanyTabs() {
           </div>
           
           {/* 데스크톱: 가로 배치 */}
-          <div className="hidden md:inline-flex items-center gap-2 rounded-full bg-[#EFF2F5] px-2 py-2">
+          <div className="hidden md:inline-flex items-center gap-1 sm:gap-2 rounded-full bg-[#EFF2F5] px-1 sm:px-2 py-1 sm:py-2">
             {tabs.map((t, i) => {
               const active = i === 0;
               return (
                 <button
                   key={t}
                   className={[
-                    "px-4 sm:px-5 h-[38px] sm:h-[42px] rounded-full text-[13px] sm:text-[14px] md:text-[15px] font-extrabold tracking-[-0.01em] transition whitespace-nowrap",
+                    "px-3 sm:px-4 md:px-6 h-[40px] sm:h-[44px] md:h-[48px] rounded-full text-[14px] sm:text-[16px] md:text-[18px] font-semibold tracking-[-0.01em] transition shadow-none whitespace-nowrap flex-shrink-0",
                     active
                       ? "bg-emerald-500 text-white shadow-[0_2px_0_rgba(0,0,0,0.04)]"
-                      : "text-slate-700 hover:text-slate-900",
+                      : "text-[#2E3A49] hover:text-slate-900",
                   ].join(" ")}
                 >
                   {t}

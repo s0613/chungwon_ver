@@ -48,23 +48,12 @@ function CompanyLocation() {
     </section>
   );
 }
-function CompanyInquiry() {
-  return (
-    <section className="bg-white">
-      <div className="mx-auto max-w-[1200px] px-4 sm:px-6 py-8 sm:py-12">
-        <h2 className="text-xl sm:text-2xl font-bold text-slate-900">문의</h2>
-        <p className="mt-3 sm:mt-4 text-sm sm:text-base text-slate-600">문의 폼 또는 연락처가 여기에 들어갑니다.</p>
-      </div>
-    </section>
-  );
-}
 
 const TABS = [
   { key: "intro", label: "청원농산 소개" },
   { key: "ceo", label: "CEO 인사말" },
   { key: "history", label: "연혁" },
-  { key: "location", label: "오시는 길" },
-  { key: "inquiry", label: "문의" },
+  { key: "location", label: "오시는 길" }
 ] as const;
 
 export default function CompanyTabbed() {
@@ -98,8 +87,6 @@ export default function CompanyTabbed() {
         return <CompanyHistory />;
       case "location":
         return <CompanyLocation />;
-      case "inquiry":
-        return <CompanyInquiry />;
       default:
         return <CompanyIntro />;
     }

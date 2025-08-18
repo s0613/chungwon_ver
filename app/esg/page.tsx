@@ -20,7 +20,25 @@ import {
   AlertCircle
 } from "lucide-react"
 
-export default function ESGDashboard() {
+// ESG Hero 컴포넌트
+function ESGHero() {
+  return (
+    <section className="w-full bg-[#D9DEE6]">
+      <div className="mx-auto max-w-[1200px] h-[360px] md:h-[420px] flex flex-col items-center justify-center px-6 text-center">
+        <h1 className="text-white/95 text-[28px] md:text-[32px] font-extrabold tracking-[-0.02em]">
+          지속가능경영 ESG
+        </h1>
+        <p className="text-white/95 text-lg md:text-2xl font-light">
+          환경(Environment), 사회(Social), 거버넌스(Governance)를 통한 
+          지속가능한 미래를 만들어갑니다
+        </p>
+      </div>
+    </section>
+  )
+}
+
+// ESG 메인 콘텐츠 컴포넌트
+function ESGContent() {
   const [environmentalProgress] = useState(85)
   const [socialProgress] = useState(78)
   const [governanceProgress] = useState(92)
@@ -89,28 +107,10 @@ export default function ESGDashboard() {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
-      
-      {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-gradient-to-br from-green-50 via-blue-50 to-indigo-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              지속가능경영 ESG
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              환경(Environment), 사회(Social), 거버넌스(Governance)를 통한 
-              지속가능한 미래를 만들어갑니다
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+    <div className="bg-white">
+      <div className="mx-auto max-w-[1200px] px-4 sm:px-6 pt-6 sm:pt-10 pb-16 sm:pb-24">
         {/* ESG 점수 개요 */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
           <Card className="border-green-200 bg-green-50 hover:shadow-lg transition-all duration-300">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center text-green-800 text-lg">
@@ -155,7 +155,7 @@ export default function ESGDashboard() {
         </div>
 
         {/* 상세 지표 */}
-        <Tabs defaultValue="environmental" className="mb-16">
+        <Tabs defaultValue="environmental" className="mb-12 sm:mb-16">
           <TabsList className="grid w-full grid-cols-3 h-14">
             <TabsTrigger value="environmental" className="text-base font-semibold">환경 (E)</TabsTrigger>
             <TabsTrigger value="social" className="text-base font-semibold">사회 (S)</TabsTrigger>
@@ -163,7 +163,7 @@ export default function ESGDashboard() {
           </TabsList>
 
           <TabsContent value="environmental" className="mt-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {environmentalMetrics.map((metric, index) => (
                 <Card key={index} className="hover:shadow-lg transition-all duration-300 border-0 bg-white">
                   <CardContent className="p-6">
@@ -185,7 +185,7 @@ export default function ESGDashboard() {
           </TabsContent>
 
           <TabsContent value="social" className="mt-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {socialMetrics.map((metric, index) => (
                 <Card key={index} className="hover:shadow-lg transition-all duration-300 border-0 bg-white">
                   <CardContent className="p-6">
@@ -207,7 +207,7 @@ export default function ESGDashboard() {
           </TabsContent>
 
           <TabsContent value="governance" className="mt-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {governanceMetrics.map((metric, index) => (
                 <Card key={index} className="hover:shadow-lg transition-all duration-300 border-0 bg-white">
                   <CardContent className="p-6">
@@ -230,7 +230,7 @@ export default function ESGDashboard() {
         </Tabs>
 
         {/* 최근 성과 및 향후 목표 */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {/* 최근 성과 */}
           <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
             <CardHeader className="pb-6">
@@ -288,11 +288,11 @@ export default function ESGDashboard() {
 
         {/* ESG 비전 */}
         <Card className="bg-gradient-to-r from-green-100 to-blue-100 border-0 shadow-lg">
-          <CardContent className="p-12 text-center">
-            <h3 className="text-3xl font-bold text-gray-900 mb-6">
+          <CardContent className="p-8 sm:p-12 text-center">
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
               ESG를 통한 지속가능한 미래
             </h3>
-            <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
               청원농산은 환경 보호, 사회적 책임, 윤리적 경영을 통해 
               미래 세대를 위한 지속가능한 가치를 창출합니다. 
               우리의 모든 활동이 지구와 사회에 긍정적인 영향을 미치도록 
@@ -301,7 +301,16 @@ export default function ESGDashboard() {
           </CardContent>
         </Card>
       </div>
+    </div>
+  )
+}
 
+export default function ESGDashboard() {
+  return (
+    <div className="min-h-screen bg-white">
+      <Header />
+      <ESGHero />
+      <ESGContent />
       <Footer />
     </div>
   )
