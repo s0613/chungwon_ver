@@ -28,6 +28,7 @@ function FeatureBlock({
         w-full max-w-[560px] aspect-square
         lg:w-[560px] lg:h-[560px]
         mx-auto lg:mx-0
+        order-2 lg:order-none
       "
     >
       <Image
@@ -43,14 +44,16 @@ function FeatureBlock({
   const TextCol = (
     <div
       className={[
-        // 높이 매칭: 텍스트 컬럼을 이미지(560)와 동일 높이로 두고 수직 중앙 정렬
-        "min-h-[560px] flex flex-col justify-center",
+        // 높이 매칭: 데스크톱에서만 이미지(560)와 동일 높이로 수직 중앙 정렬
+        "lg:min-h-[560px] lg:flex lg:flex-col lg:justify-center",
         // 폭: 피그마 텍스트 박스 638px
         "max-w-[638px]",
         // 왼쪽/가운데 정렬
         isCenter ? "text-center mx-auto" : "text-left",
         // 좌우 여백 조정
         imagePosition === "left" ? "lg:pl-6" : "lg:pr-6",
+        // 모바일에서 이미지 다음에 본문이 오도록 순서 지정
+        "order-3 lg:order-none",
       ].join(" ")}
     >
       <h2
@@ -58,6 +61,8 @@ function FeatureBlock({
           "text-2xl md:text-3xl font-semibold tracking-tight",
           isCenter ? "mb-6" : "mb-5",
           "text-slate-900",
+          // 모바일에서는 상단에 별도로 타이틀을 노출하므로 숨김
+          "hidden lg:block",
         ].join(" ")}
       >
         {title}
@@ -81,7 +86,17 @@ function FeatureBlock({
   return (
     <section className="py-14 md:py-20">
       <div className="mx-auto max-w-[1200px] px-4 md:px-6">
-        <div className={`grid gap-10 items-stretch ${gridTemplate}`}>
+        {/* 모바일 전용 타이틀: 제목 → 이미지 → 본문 순서를 위해 분리 */}
+        <h2
+          className={[
+            "text-2xl md:text-3xl font-semibold tracking-tight text-slate-900",
+            isCenter ? "mb-6" : "mb-5",
+            "block lg:hidden",
+          ].join(" ")}
+        >
+          {title}
+        </h2>
+        <div className={`flex flex-col gap-10 items-stretch lg:grid ${gridTemplate}`}>
           {imagePosition === "left" ? (
             <>
               {ImageBox}

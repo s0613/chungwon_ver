@@ -14,6 +14,11 @@ export const metadata: Metadata = {
     shortcut: '/chunwonfavicon.svg',
     apple: '/chunwonfavicon.svg',
   },
+  verification: {
+    other: {
+      'naver-site-verification': '881c36006c9b69d6376d9921b6c14c99e35ea8d3',
+    },
+  },
 }
 
 export default function RootLayout({

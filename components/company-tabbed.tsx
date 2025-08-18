@@ -9,18 +9,79 @@ function CompanyLocation() {
   const NAVER_MAP_IFRAME_URL =
     "https://map.naver.com/p/search/%EC%B2%AD%EC%9B%90%EB%86%8D%EC%82%B0/place/32812069?placePath=/home?entry=pll&from=map&fromNxList=true&fromPanelNum=2&timestamp=202508120205&locale=ko&svcName=map_pcv5&searchText=%EC%B2%AD%EC%9B%90%EB%86%8D%EC%82%B0&searchType=place&c=15.04,0,0,0,dh";
 
+  const ADDRESS_TEXT = "인천광역시 남동구 능허대로 625번길 118 (주)청원농산";
+  const TEL = "032-818-4168";
+
+  const [isMapInteractive, setIsMapInteractive] = useState(false);
+  const [directionsUrl, setDirectionsUrl] = useState<string>("");
+
+  useEffect(() => {
+    const ua = typeof navigator !== "undefined" ? navigator.userAgent || "" : "";
+    const isIOS = /iPhone|iPad|iPod/i.test(ua);
+    const url = isIOS
+      ? `https://maps.apple.com/?q=${encodeURIComponent(ADDRESS_TEXT)}`
+      : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS_TEXT)}`;
+    setDirectionsUrl(url);
+  }, []);
+
   return (
     <section className="bg-white">
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6 pt-6 sm:pt-10 pb-12 sm:pb-16">
         {/* 지도 임베드 */}
-        <div className="w-full mx-auto rounded-xl sm:rounded-2xl overflow-hidden">
+        <div className="relative w-full mx-auto overflow-hidden -mx-4 sm:mx-0 rounded-none sm:rounded-2xl">
           <iframe
             title="오시는 길 - 네이버 지도"
             src={NAVER_MAP_IFRAME_URL}
-            className="w-full h-[300px] sm:h-[400px] md:h-[520px] lg:h-[600px] border-0"
+            className={[
+              "w-full h-[360px] sm:h-[440px] md:h-[520px] lg:h-[600px] border-0",
+              !isMapInteractive ? "pointer-events-none select-none" : "pointer-events-auto",
+            ].join(" ")}
             style={{ border: "none" }}
             loading="lazy"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
           />
+
+          {/* 모바일: 지도 인터랙션 해제 오버레이 */}
+          {!isMapInteractive && (
+            <button
+              type="button"
+              aria-label="지도를 조작하려면 탭하세요"
+              onClick={() => setIsMapInteractive(true)}
+              className="absolute inset-0 md:hidden bg-gradient-to-t from-black/25 to-transparent text-white text-[13px] font-medium flex items-end justify-center pb-4"
+            >
+              지도를 조작하려면 탭하세요
+            </button>
+          )}
+        </div>
+
+        {/* 모바일 빠른 실행 버튼 */}
+        <div className="mt-3 md:hidden grid grid-cols-3 gap-2">
+          <a
+            href={directionsUrl || "#"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-3 py-2 rounded-lg text-[12px] font-semibold bg-emerald-500 text-white shadow-[0_2px_0_rgba(0,0,0,0.04)]"
+            aria-label="길찾기 열기"
+          >
+            길찾기
+          </a>
+          <a
+            href={NAVER_MAP_IFRAME_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-3 py-2 rounded-lg text-[12px] font-semibold bg-[#EFF2F5] text-slate-900"
+            aria-label="네이버 지도 열기"
+          >
+            네이버 지도
+          </a>
+          <a
+            href={`tel:${TEL}`}
+            className="inline-flex items-center justify-center px-3 py-2 rounded-lg text-[12px] font-semibold bg-[#EFF2F5] text-slate-900"
+            aria-label="전화 걸기"
+          >
+            전화하기
+          </a>
         </div>
 
         {/* 주소 / 연락처 */}
@@ -31,7 +92,7 @@ function CompanyLocation() {
                 주소
               </h3>
               <p className="mt-2 text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] text-slate-900 leading-relaxed">
-                인천광역시 남동구 능허대로 625번길 118 (주)청원농산
+                {ADDRESS_TEXT}
               </p>
             </div>
             <div>
@@ -39,7 +100,7 @@ function CompanyLocation() {
                 전화번호
               </h3>
               <p className="mt-2 text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] text-slate-900 leading-relaxed">
-                032-818-4168
+                {TEL}
               </p>
             </div>
           </div>

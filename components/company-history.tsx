@@ -15,7 +15,7 @@ const items: Item[] = [
 
 export default function CompanyHistory() {
   return (
-    <section className="bg-white">
+    <section className="bg-white overflow-x-hidden">
       <div className="mx-auto max-w-[1200px] px-6 pt-10 pb-16">
         {/* 제목 - 중앙정렬 */}
         <h2 className="text-center text-[20px] sm:text-[22px] md:text-[24px] lg:text-[26px] font-extrabold tracking-[-0.02em] text-slate-900">
@@ -29,11 +29,11 @@ export default function CompanyHistory() {
             {items.map((it, idx) => (
               <div
                 key={idx}
-                className="grid items-baseline grid-cols-[97px_60px_1fr] gap-x-[77px] justify-items-center"
+                className="grid items-baseline grid-cols-[72px_48px_1fr] md:grid-cols-[97px_60px_1fr] gap-x-4 md:gap-x-[77px] justify-items-start md:justify-items-center"
               >
                 {/* YEAR - company-ceo와 동일한 스타일 적용 */}
                 <div
-                  className="w-[97px] font-extrabold tabular-nums text-[20px] sm:text-[22px] md:text-[24px] lg:text-[26px] leading-[1.25] tracking-[-0.02em] text-slate-900"
+                  className="w-[68px] md:w-[97px] font-extrabold tabular-nums text-[20px] sm:text-[22px] md:text-[24px] lg:text-[26px] leading-[1.25] tracking-[-0.02em] text-slate-900"
                 >
                   {it.year}
                 </div>
