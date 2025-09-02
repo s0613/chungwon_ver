@@ -42,16 +42,14 @@ export default function CompanyIntro() {
 
         {/* 동영상 섹션 */}
         <div className="mt-8 sm:mt-12">
-          <div className="relative w-full h-[200px] sm:h-[280px] md:h-[350px] lg:h-[420px] rounded-xl sm:rounded-2xl bg-slate-200/70 shadow-sm">
-            {/* 동영상 플레이어 또는 플레이 버튼 */}
-            <div className="absolute inset-0 grid place-items-center">
-              <div className="flex flex-col items-center space-y-3 sm:space-y-4">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-white/90 rounded-full flex items-center justify-center shadow-lg">
-                  <div className="w-0 h-0 border-l-[8px] sm:border-l-[12px] md:border-l-[16px] border-l-emerald-600 border-t-[6px] sm:border-t-[9px] md:border-t-[12px] border-t-transparent border-b-[6px] sm:border-b-[9px] md:border-b-[12px] border-b-transparent ml-0.5 sm:ml-1"></div>
-                </div>
-                <p className="text-slate-600 font-medium text-xs sm:text-sm md:text-base text-center px-2">청원농산 소개 동영상</p>
-              </div>
-            </div>
+          <div className="relative w-full h-[300px] sm:h-[420px] md:h-[560px] lg:h-[680px] rounded-xl sm:rounded-2xl bg-slate-200/70 shadow-sm overflow-hidden">
+            <video
+              src="/video/introduce.mp4"
+              className="absolute inset-0 w-full h-full object-cover"
+              controls
+              playsInline
+              preload="metadata"
+            />
           </div>
         </div>
 
