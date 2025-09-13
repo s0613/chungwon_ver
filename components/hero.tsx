@@ -28,37 +28,58 @@ const heroDescriptions = [
 
 export default function Hero() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [isTransitioning, setIsTransitioning] = useState(false)
   const isMobile = useIsMobile()
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length)
-    }, 3000) // 3초마다 전환
+      // 1단계: 텍스트 페이드아웃 시작
+      setIsTransitioning(true)
+      
+      // 2단계: 텍스트 페이드아웃 완료 후 0.3초 대기, 그 다음 이미지 변경 (800ms 후)
+      setTimeout(() => {
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length)
+      }, 800)
+      
+      // 3단계: 이미지 변경 후 텍스트 페이드인 (900ms 후)
+      setTimeout(() => {
+        setIsTransitioning(false)
+      }, 900)
+    }, 8000) // 8초마다 전환으로 매우 여유롭게
 
     return () => clearInterval(interval)
   }, [])
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image Slideshow */}
-      <Image
-        src={heroImages[currentImageIndex]}
-        alt={`Hero background ${currentImageIndex + 1}`}
-        fill
-        className={`${
-          isMobile 
-            ? "object-cover object-center" 
-            : "object-cover"
-        }`}
-        priority
-      />
+      {/* Background Image Slideshow with Fade Effect */}
+      <div className="relative w-full h-full">
+        {heroImages.map((image, index) => (
+          <Image
+            key={image}
+            src={image}
+            alt={`Hero background ${index + 1}`}
+            fill
+            className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
+              isMobile 
+                ? "object-cover object-center" 
+                : "object-cover"
+            } ${
+              index === currentImageIndex 
+                ? "opacity-100" 
+                : "opacity-0"
+            }`}
+            priority={index === currentImageIndex}
+          />
+        ))}
+      </div>
 
       {/* Mobile overlay for better text readability */}
       {isMobile && (
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent z-[1]" />
       )}
 
-      {/* Left Bottom Description */}
+      {/* Left Bottom Description with Slide Animation */}
       <div className={`absolute z-10 text-white ${
         isMobile 
           ? "bottom-6 left-4 right-4 text-center" 
@@ -67,40 +88,46 @@ export default function Hero() {
         <div className={`flex flex-col ${
           isMobile ? "items-center" : "items-start"
         }`}>
-          <h1 className={`font-bold mb-3 leading-tight ${
-            isMobile ? "text-2xl sm:text-3xl" : "text-4xl"
-          }`}>
-            {heroDescriptions[currentImageIndex].text}
-          </h1>
-          <h2 className={`font-semibold mb-6 ${
-            isMobile ? "text-lg sm:text-xl" : "text-3xl"
-          }`}>
-            {heroDescriptions[currentImageIndex].company}
-          </h2>
-          <Link href={currentImageIndex === 0 ? "/company" : currentImageIndex === 1 ? "/products" : "/esg"}>
-            <Button
-              variant="outline"
-              className={`group bg-white/10 backdrop-blur-sm border-white/30 text-white font-bold px-6 py-3 text-base sm:text-lg rounded-full transition-all duration-300 hover:bg-white/20 hover:border-white/50 flex items-center justify-center gap-2 ${
-                isMobile ? "w-full max-w-sm shadow-lg" : ""
-              }`}
-            >
-              <Image 
-                src="/arrow.svg" 
-                alt="Arrow" 
-                width={20} 
-                height={20} 
-                className="w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300 group-hover:hidden" 
-              />
-              <Image 
-                src="/arrow_black.svg" 
-                alt="Arrow Black" 
-                width={20} 
-                height={20} 
-                className="w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300 hidden group-hover:block" 
-              />
-              {heroDescriptions[currentImageIndex].buttonText}
-            </Button>
-          </Link>
+          <div className="relative overflow-hidden">
+            <h1 className={`font-bold mb-3 leading-tight transition-all duration-500 ease-in-out ${
+              isMobile ? "text-2xl sm:text-3xl" : "text-4xl"
+            } ${isTransitioning ? "opacity-0 transform translate-y-2" : "opacity-100 transform translate-y-0"}`}>
+              {heroDescriptions[currentImageIndex].text}
+            </h1>
+          </div>
+          <div className="relative overflow-hidden">
+            <h2 className={`font-semibold mb-6 transition-all duration-500 ease-in-out delay-100 ${
+              isMobile ? "text-lg sm:text-xl" : "text-3xl"
+            } ${isTransitioning ? "opacity-0 transform translate-y-2" : "opacity-100 transform translate-y-0"}`}>
+              {heroDescriptions[currentImageIndex].company}
+            </h2>
+          </div>
+          <div className="relative overflow-hidden">
+            <Link href={currentImageIndex === 0 ? "/company" : currentImageIndex === 1 ? "/products" : "/esg"}>
+              <Button
+                variant="outline"
+                className={`group bg-white/10 backdrop-blur-sm border-white/30 text-white font-bold px-6 py-3 text-base sm:text-lg rounded-full transition-all duration-500 ease-in-out delay-200 hover:bg-white/20 hover:border-white/50 flex items-center justify-center gap-2 ${
+                  isMobile ? "w-full max-w-sm shadow-lg" : ""
+                } ${isTransitioning ? "opacity-0 transform translate-y-2" : "opacity-100 transform translate-y-0"}`}
+              >
+                <Image 
+                  src="/arrow.svg" 
+                  alt="Arrow" 
+                  width={20} 
+                  height={20} 
+                  className="w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300 group-hover:hidden" 
+                />
+                <Image 
+                  src="/arrow_black.svg" 
+                  alt="Arrow Black" 
+                  width={20} 
+                  height={20} 
+                  className="w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300 hidden group-hover:block" 
+                />
+                {heroDescriptions[currentImageIndex].buttonText}
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -110,7 +137,20 @@ export default function Hero() {
           {heroImages.map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentImageIndex(index)}
+              onClick={() => {
+                // 1단계: 텍스트 페이드아웃 시작
+                setIsTransitioning(true)
+                
+                // 2단계: 텍스트 페이드아웃 완료 후 0.3초 대기, 그 다음 이미지 변경 (800ms 후)
+                setTimeout(() => {
+                  setCurrentImageIndex(index)
+                }, 800)
+                
+                // 3단계: 이미지 변경 후 텍스트 페이드인 (900ms 후)
+                setTimeout(() => {
+                  setIsTransitioning(false)
+                }, 900)
+              }}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 index === currentImageIndex 
                   ? "bg-white w-6" 
