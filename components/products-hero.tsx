@@ -6,7 +6,7 @@ export default function ProductsHero() {
       {/* 배경 이미지 */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/productintro.png')" }}
+        style={{ backgroundImage: "url('/productintro.webp')" }}
       />
       
       {/* 오버레이 */}

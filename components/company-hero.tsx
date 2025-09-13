@@ -14,7 +14,7 @@ export default function CompanyHero() {
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <Image
-        src="/companyinfo.png"
+        src="/companyinfo.webp"
         alt="청원농산 배경"
         fill
         className="object-cover transition-transform duration-1000 ease-out hover:scale-105"

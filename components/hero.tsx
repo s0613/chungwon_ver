@@ -6,7 +6,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useIsMobile } from "@/hooks/use-mobile"
 
-const heroImages = ["/landing1.gif", "/landing2.png", "/landing3.png"]
+const heroImages = ["/landing1.gif", "/landing2.webp", "/landing3.webp"]
 
 const heroDescriptions = [
   {

@@ -24,7 +24,7 @@ const PRODUCTS = {
     {
       id: "rice",
       name: "쌀 재롱이",
-      image: "/product/쌀.webp",
+      image: "/rice.webp",
       description: "도토리와 함께 넣는 부원료 곡물",
       category: "원두",
       sizes: ["10kg", "20kg", "Bulk"]
@@ -32,7 +32,7 @@ const PRODUCTS = {
     {
       id: "acorn",
       name: "도토리 앙금",
-      image: "/product/도토리앙금.webp",
+      image: "/dotori.webp",
       description: "도토리와 쌀재롱이를 갈아 얻은 침전물",
       category: "원두",
       sizes: ["4kg", "10kg", "Bulk"]

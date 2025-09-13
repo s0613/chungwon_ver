@@ -60,7 +60,7 @@ export default function WhoWeAre() {
               onClick={prevSlide}
               className="w-14 h-14 rounded-full border-gray-300 hover:border-gray-400 hover:bg-gray-50 bg-transparent transition-all duration-200"
             >
-              <Image src="/prev-arrow.png" alt="Previous" width={20} height={20} className="w-5 h-5" />
+              <Image src="/next-arrow.webp" alt="Previous" width={20} height={20} className="w-5 h-5" />
             </Button>
             <Button
               variant="outline"
@@ -68,7 +68,7 @@ export default function WhoWeAre() {
               onClick={nextSlide}
               className="w-14 h-14 rounded-full border-gray-300 hover:border-gray-400 hover:bg-gray-50 bg-transparent transition-all duration-200"
             >
-              <Image src="/next-arrow.png" alt="Next" width={20} height={20} className="w-5 h-5" />
+              <Image src="/next-arrow.webp" alt="Next" width={20} height={20} className="w-5 h-5" />
             </Button>
           </div>
         </div>
