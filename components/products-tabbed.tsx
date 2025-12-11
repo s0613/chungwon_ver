@@ -16,7 +16,7 @@ const PRODUCTS = {
     {
       id: "domestic-acorn",
       name: "국산 도토리",
-      image: "https://d1tlu55vk9m9db.cloudfront.net/product/상수리.webp",
+      image: "https://d1tlu55vk9m9db.cloudfront.net/product/sangsuri.webp",
       description: "영주산 도토리 원두",
       category: "원두",
       sizes: ["10kg", "20kg", "Bulk"]
@@ -50,7 +50,7 @@ const PRODUCTS = {
     {
       id: "domestic-acorn-powder",
       name: "국산 도토리가루",
-      image: "https://d1tlu55vk9m9db.cloudfront.net/powder/국산도토리가루.webp",
+      image: "https://d1tlu55vk9m9db.cloudfront.net/powder/domestic-acorn-powder.webp",
       description: "국내산 도토리를 건조·정제해 만든 가루",
       category: "전분·가루",
       sizes: ["500g", "Bulk"]
@@ -58,7 +58,7 @@ const PRODUCTS = {
     {
       id: "domestic-processed-acorn-powder",
       name: "국내가공 도토리가루",
-      image: "https://d1tlu55vk9m9db.cloudfront.net/powder/국내가공도토리가루.webp",
+      image: "https://d1tlu55vk9m9db.cloudfront.net/powder/domestic-processed-acorn-powder.webp",
       description: "수입 도토리를 국내에서 100% 건조·정제해 만든 가루",
       category: "전분·가루",
       sizes: ["500g", "800g", "2kg", "Bulk"]
@@ -66,7 +66,7 @@ const PRODUCTS = {
     {
       id: "imported-acorn-powder",
       name: "수입 도토리가루",
-      image: "https://d1tlu55vk9m9db.cloudfront.net/powder/수입도토리가루.webp",
+      image: "https://d1tlu55vk9m9db.cloudfront.net/powder/imported-acorn-powder.webp",
       description: "수입한 도토리를 건조·정제해 만든 가루",
       category: "전분·가루",
       sizes: ["500g", "1kg", "2kg", "Bulk"]
@@ -74,7 +74,7 @@ const PRODUCTS = {
     {
       id: "water-chestnut-starch",
       name: "올방개 전분",
-      image: "https://d1tlu55vk9m9db.cloudfront.net/powder/올방개가루.webp",
+      image: "https://d1tlu55vk9m9db.cloudfront.net/powder/water-chestnut-starch.webp",
       description: "올방개 열매에서 얻은 고소한 맛의 전분",
       category: "전분·가루",
       sizes: ["500g", "800g", "1kg", "Bulk"]
@@ -82,7 +82,7 @@ const PRODUCTS = {
     {
       id: "cowpea-starch",
       name: "동부 전분",
-      image: "https://d1tlu55vk9m9db.cloudfront.net/powder/동부묵가루.webp",
+      image: "https://d1tlu55vk9m9db.cloudfront.net/powder/cowpea-starch.webp",
       description: "동부콩을 갈아 만든 전통 전분",
       category: "전분·가루",
       sizes: ["500g", "1kg", "Bulk"]
@@ -90,7 +90,7 @@ const PRODUCTS = {
     {
       id: "mung-bean-starch",
       name: "청포 전분",
-      image: "https://d1tlu55vk9m9db.cloudfront.net/powder/청포묵가루.webp",
+      image: "https://d1tlu55vk9m9db.cloudfront.net/powder/mung-bean-starch.webp",
       description: "녹두에서 전분을 추출해 만든 전분",
       category: "전분·가루",
       sizes: ["500g", "1kg", "Bulk"]
@@ -98,7 +98,7 @@ const PRODUCTS = {
     {
       id: "buckwheat-starch",
       name: "메밀 전분",
-      image: "https://d1tlu55vk9m9db.cloudfront.net/powder/메밀묵가루.webp",
+      image: "https://d1tlu55vk9m9db.cloudfront.net/powder/buckwheat-starch.webp",
       description: "담백하고 부드러운 식감을 내는 메밀가루 전분",
       category: "전분·가루",
       sizes: ["500g", "1kg", "Bulk"]
@@ -108,7 +108,7 @@ const PRODUCTS = {
     {
       id: "dried-muk",
       name: "건조묵",
-      image: "https://d1tlu55vk9m9db.cloudfront.net/simple/건조묵.webp",
+      image: "https://d1tlu55vk9m9db.cloudfront.net/simple/dried-muk.webp",
       description: "보관과 조리가 편리하도록 건조시킨 묵",
       category: "간편식품",
       sizes: ["500g", "5kg", "Bulk"]
@@ -116,7 +116,7 @@ const PRODUCTS = {
     {
       id: "acorn-muk",
       name: "도토리묵",
-      image: "https://d1tlu55vk9m9db.cloudfront.net/simple/도토리묵.webp",
+      image: "https://d1tlu55vk9m9db.cloudfront.net/simple/acorn-muk.webp",
       description: "도토리 전분을 끓여 굳힌 고소한 전통 묵",
       category: "간편식품",
       sizes: ["400g", "2kg"]
@@ -124,7 +124,7 @@ const PRODUCTS = {
     {
       id: "cowpea-muk",
       name: "동부묵",
-      image: "https://d1tlu55vk9m9db.cloudfront.net/simple/동부묵.webp",
+      image: "https://d1tlu55vk9m9db.cloudfront.net/simple/cowpea-muk.webp",
       description: "동부콩 전분으로 만든 쫄깃한 묵",
       category: "간편식품",
       sizes: ["400g", "2kg"]
@@ -134,7 +134,7 @@ const PRODUCTS = {
     {
       id: "soy-sauce",
       name: "간장소스",
-      image: "https://d1tlu55vk9m9db.cloudfront.net/source/간장소스.webp",
+      image: "https://d1tlu55vk9m9db.cloudfront.net/source/soy-sauce.webp",
       description: "묵과 함께 곁들이는 특제 양념 소스",
       category: "소스·육수",
       sizes: ["60ml"]
@@ -142,7 +142,7 @@ const PRODUCTS = {
     {
       id: "broth",
       name: "육수",
-      image: "https://d1tlu55vk9m9db.cloudfront.net/source/도토리묵밥.webp",
+      image: "https://d1tlu55vk9m9db.cloudfront.net/source/broth.webp",
       description: "시원하고 깔끔한 맛을 살린 냉면 육수",
       category: "소스·육수",
       sizes: ["350ml"]
