@@ -1,17 +1,18 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { 
-  Leaf, 
-  Users, 
-  Shield, 
-  TrendingUp, 
+import {
+  Leaf,
+  Users,
+  Shield,
+  TrendingUp,
   Award,
   Globe,
   Heart,
@@ -23,13 +24,21 @@ import {
 // ESG Hero 컴포넌트
 function ESGHero() {
   return (
-    <section className="w-full bg-[#D9DEE6]">
-      <div className="mx-auto max-w-[1200px] h-[360px] md:h-[420px] flex flex-col items-center justify-center px-6 text-center">
-        <h1 className="text-white/95 text-[28px] md:text-[32px] font-extrabold tracking-[-0.02em]">
+    <section className="w-full relative h-[360px] md:h-[420px]">
+      <Image
+        src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=1920&q=80"
+        alt="ESG 지속가능경영"
+        fill
+        className="object-cover"
+        priority
+      />
+      <div className="absolute inset-0 bg-black/50" />
+      <div className="relative mx-auto max-w-[1200px] h-full flex flex-col items-center justify-center px-6 text-center">
+        <h1 className="text-white text-[28px] md:text-[32px] font-extrabold tracking-[-0.02em]">
           지속가능경영 ESG
         </h1>
-        <p className="text-white/95 text-lg md:text-2xl font-light">
-          환경(Environment), 사회(Social), 거버넌스(Governance)를 통한 
+        <p className="text-white/90 text-lg md:text-2xl font-light mt-4">
+          환경(Environment), 사회(Social), 거버넌스(Governance)를 통한
           지속가능한 미래를 만들어갑니다
         </p>
       </div>
@@ -111,45 +120,45 @@ function ESGContent() {
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6 pt-6 sm:pt-10 pb-16 sm:pb-24">
         {/* ESG 점수 개요 */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
-          <Card className="border-green-200 bg-green-50 hover:shadow-lg transition-all duration-300">
+          <Card className="border-gray-200 bg-white hover:shadow-lg transition-all duration-300">
             <CardHeader className="pb-4">
-              <CardTitle className="flex items-center text-green-800 text-lg">
-                <Leaf className="w-6 h-6 mr-3" />
+              <CardTitle className="flex items-center text-black text-lg">
+                <Leaf className="w-6 h-6 mr-3 text-gray-700" />
                 환경 (E)
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-4xl font-bold text-green-800 mb-3">{environmentalProgress}점</div>
-              <Progress value={environmentalProgress} className="h-3 bg-green-100 mb-3" />
-              <p className="text-sm text-green-600">탄소중립 및 친환경 경영</p>
+              <div className="text-4xl font-bold text-black mb-3">{environmentalProgress}점</div>
+              <Progress value={environmentalProgress} className="h-3 bg-gray-200 mb-3" />
+              <p className="text-sm text-gray-600">탄소중립 및 친환경 경영</p>
             </CardContent>
           </Card>
 
-          <Card className="border-blue-200 bg-blue-50 hover:shadow-lg transition-all duration-300">
+          <Card className="border-gray-200 bg-white hover:shadow-lg transition-all duration-300">
             <CardHeader className="pb-4">
-              <CardTitle className="flex items-center text-blue-800 text-lg">
-                <Users className="w-6 h-6 mr-3" />
+              <CardTitle className="flex items-center text-black text-lg">
+                <Users className="w-6 h-6 mr-3 text-gray-700" />
                 사회 (S)
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-4xl font-bold text-blue-800 mb-3">{socialProgress}점</div>
-              <Progress value={socialProgress} className="h-3 bg-blue-100 mb-3" />
-              <p className="text-sm text-blue-600">사회적 가치 창출</p>
+              <div className="text-4xl font-bold text-black mb-3">{socialProgress}점</div>
+              <Progress value={socialProgress} className="h-3 bg-gray-200 mb-3" />
+              <p className="text-sm text-gray-600">사회적 가치 창출</p>
             </CardContent>
           </Card>
 
-          <Card className="border-purple-200 bg-purple-50 hover:shadow-lg transition-all duration-300">
+          <Card className="border-gray-200 bg-white hover:shadow-lg transition-all duration-300">
             <CardHeader className="pb-4">
-              <CardTitle className="flex items-center text-purple-800 text-lg">
-                <Shield className="w-6 h-6 mr-3" />
+              <CardTitle className="flex items-center text-black text-lg">
+                <Shield className="w-6 h-6 mr-3 text-gray-700" />
                 거버넌스 (G)
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-4xl font-bold text-purple-800 mb-3">{governanceProgress}점</div>
-              <Progress value={governanceProgress} className="h-3 bg-purple-100 mb-3" />
-              <p className="text-sm text-purple-600">투명하고 윤리적인 경영</p>
+              <div className="text-4xl font-bold text-black mb-3">{governanceProgress}점</div>
+              <Progress value={governanceProgress} className="h-3 bg-gray-200 mb-3" />
+              <p className="text-sm text-gray-600">투명하고 윤리적인 경영</p>
             </CardContent>
           </Card>
         </div>
@@ -165,18 +174,18 @@ function ESGContent() {
           <TabsContent value="environmental" className="mt-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {environmentalMetrics.map((metric, index) => (
-                <Card key={index} className="hover:shadow-lg transition-all duration-300 border-0 bg-white">
+                <Card key={index} className="hover:shadow-lg transition-all duration-300 border border-gray-200 bg-white">
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between mb-4">
-                      <metric.icon className="w-6 h-6 text-green-600" />
-                      <Badge 
+                      <metric.icon className="w-6 h-6 text-gray-700" />
+                      <Badge
                         variant={metric.status === "success" ? "default" : "secondary"}
-                        className={metric.status === "success" ? "bg-green-100 text-green-800 border-green-200" : "bg-yellow-100 text-yellow-800 border-yellow-200"}
+                        className={metric.status === "success" ? "bg-black text-white" : "bg-gray-200 text-gray-700"}
                       >
                         {metric.status === "success" ? "달성" : "진행중"}
                       </Badge>
                     </div>
-                    <div className="text-3xl font-bold text-gray-900 mb-2">{metric.value}</div>
+                    <div className="text-3xl font-bold text-black mb-2">{metric.value}</div>
                     <div className="text-sm text-gray-600">{metric.name}</div>
                   </CardContent>
                 </Card>
@@ -187,18 +196,18 @@ function ESGContent() {
           <TabsContent value="social" className="mt-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {socialMetrics.map((metric, index) => (
-                <Card key={index} className="hover:shadow-lg transition-all duration-300 border-0 bg-white">
+                <Card key={index} className="hover:shadow-lg transition-all duration-300 border border-gray-200 bg-white">
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between mb-4">
-                      <metric.icon className="w-6 h-6 text-blue-600" />
-                      <Badge 
+                      <metric.icon className="w-6 h-6 text-gray-700" />
+                      <Badge
                         variant={metric.status === "success" ? "default" : "secondary"}
-                        className={metric.status === "success" ? "bg-blue-100 text-blue-800 border-blue-200" : "bg-yellow-100 text-yellow-800 border-yellow-200"}
+                        className={metric.status === "success" ? "bg-black text-white" : "bg-gray-200 text-gray-700"}
                       >
                         {metric.status === "success" ? "달성" : "진행중"}
                       </Badge>
                     </div>
-                    <div className="text-3xl font-bold text-gray-900 mb-2">{metric.value}</div>
+                    <div className="text-3xl font-bold text-black mb-2">{metric.value}</div>
                     <div className="text-sm text-gray-600">{metric.name}</div>
                   </CardContent>
                 </Card>
@@ -209,18 +218,18 @@ function ESGContent() {
           <TabsContent value="governance" className="mt-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {governanceMetrics.map((metric, index) => (
-                <Card key={index} className="hover:shadow-lg transition-all duration-300 border-0 bg-white">
+                <Card key={index} className="hover:shadow-lg transition-all duration-300 border border-gray-200 bg-white">
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between mb-4">
-                      <metric.icon className="w-6 h-6 text-purple-600" />
-                      <Badge 
+                      <metric.icon className="w-6 h-6 text-gray-700" />
+                      <Badge
                         variant={metric.status === "success" ? "default" : "secondary"}
-                        className={metric.status === "success" ? "bg-purple-100 text-purple-800 border-purple-200" : "bg-yellow-100 text-yellow-800 border-yellow-200"}
+                        className={metric.status === "success" ? "bg-black text-white" : "bg-gray-200 text-gray-700"}
                       >
                         {metric.status === "success" ? "달성" : "진행중"}
                       </Badge>
                     </div>
-                    <div className="text-3xl font-bold text-gray-900 mb-2">{metric.value}</div>
+                    <div className="text-3xl font-bold text-black mb-2">{metric.value}</div>
                     <div className="text-sm text-gray-600">{metric.name}</div>
                   </CardContent>
                 </Card>
@@ -232,22 +241,22 @@ function ESGContent() {
         {/* 최근 성과 및 향후 목표 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {/* 최근 성과 */}
-          <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
+          <Card className="border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 bg-white">
             <CardHeader className="pb-6">
-              <CardTitle className="flex items-center text-gray-900 text-xl">
-                <Award className="w-6 h-6 mr-3 text-yellow-600" />
+              <CardTitle className="flex items-center text-black text-xl">
+                <Award className="w-6 h-6 mr-3 text-gray-700" />
                 최근 성과
               </CardTitle>
-              <CardDescription className="text-base">ESG 관련 주요 성과 및 인증</CardDescription>
+              <CardDescription className="text-base text-gray-600">ESG 관련 주요 성과 및 인증</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               {recentAchievements.map((achievement, index) => (
                 <div key={index} className="flex items-start space-x-4 p-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-200">
-                  <div className="w-3 h-3 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-3 h-3 bg-black rounded-full mt-2 flex-shrink-0"></div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-2">
-                      <h4 className="font-semibold text-gray-900">{achievement.title}</h4>
-                      <Badge variant="outline" className="text-xs border-gray-300">
+                      <h4 className="font-semibold text-black">{achievement.title}</h4>
+                      <Badge variant="outline" className="text-xs border-gray-400 text-gray-700">
                         {achievement.category}
                       </Badge>
                     </div>
@@ -260,22 +269,22 @@ function ESGContent() {
           </Card>
 
           {/* 향후 목표 */}
-          <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
+          <Card className="border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 bg-white">
             <CardHeader className="pb-6">
-              <CardTitle className="flex items-center text-gray-900 text-xl">
-                <Target className="w-6 h-6 mr-3 text-blue-600" />
+              <CardTitle className="flex items-center text-black text-xl">
+                <Target className="w-6 h-6 mr-3 text-gray-700" />
                 향후 목표
               </CardTitle>
-              <CardDescription className="text-base">ESG 중장기 목표 및 로드맵</CardDescription>
+              <CardDescription className="text-base text-gray-600">ESG 중장기 목표 및 로드맵</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               {upcomingGoals.map((goal, index) => (
-                <div key={index} className="flex items-start space-x-4 p-4 rounded-lg bg-blue-50 hover:bg-blue-100 transition-colors duration-200">
-                  <goal.icon className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
+                <div key={index} className="flex items-start space-x-4 p-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-200">
+                  <goal.icon className="w-6 h-6 text-gray-700 mt-1 flex-shrink-0" />
                   <div className="flex-1">
-                    <h4 className="font-semibold text-gray-900 mb-2">{goal.title}</h4>
+                    <h4 className="font-semibold text-black mb-2">{goal.title}</h4>
                     <p className="text-sm text-gray-600 mb-3">{goal.description}</p>
-                    <div className="flex items-center text-sm text-blue-600">
+                    <div className="flex items-center text-sm text-gray-700">
                       <TrendingUp className="w-4 h-4 mr-2" />
                       {goal.target}
                     </div>
@@ -287,15 +296,15 @@ function ESGContent() {
         </div>
 
         {/* ESG 비전 */}
-        <Card className="bg-gradient-to-r from-green-100 to-blue-100 border-0 shadow-lg">
+        <Card className="bg-gray-100 border border-gray-200 shadow-lg">
           <CardContent className="p-8 sm:p-12 text-center">
-            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
+            <h3 className="text-2xl sm:text-3xl font-bold text-black mb-6">
               ESG를 통한 지속가능한 미래
             </h3>
             <p className="text-base sm:text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
-              청원농산은 환경 보호, 사회적 책임, 윤리적 경영을 통해 
-              미래 세대를 위한 지속가능한 가치를 창출합니다. 
-              우리의 모든 활동이 지구와 사회에 긍정적인 영향을 미치도록 
+              청원농산은 환경 보호, 사회적 책임, 윤리적 경영을 통해
+              미래 세대를 위한 지속가능한 가치를 창출합니다.
+              우리의 모든 활동이 지구와 사회에 긍정적인 영향을 미치도록
               끊임없이 노력하고 있습니다.
             </p>
           </CardContent>
