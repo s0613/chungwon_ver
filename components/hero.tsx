@@ -6,7 +6,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useIsMobile } from "@/hooks/use-mobile"
 
-const heroImages = ["/landing1.gif", "/landing2.webp", "/landing3.webp"]
+const heroImages = ["https://d1tlu55vk9m9db.cloudfront.net/landing1.gif", "https://d1tlu55vk9m9db.cloudfront.net/landing2.webp", "https://d1tlu55vk9m9db.cloudfront.net/landing3.webp"]
 
 const heroDescriptions = [
   {
@@ -111,14 +111,14 @@ export default function Hero() {
                 } ${isTransitioning ? "opacity-0 transform translate-y-2" : "opacity-100 transform translate-y-0"}`}
               >
                 <Image 
-                  src="/arrow.svg" 
+                  src="https://d1tlu55vk9m9db.cloudfront.net/arrow.svg" 
                   alt="Arrow" 
                   width={20} 
                   height={20} 
                   className="w-5 h-5 sm:w-6 sm:h-6 transition-all duration-300 group-hover:hidden" 
                 />
                 <Image 
-                  src="/arrow_black.svg" 
+                  src="https://d1tlu55vk9m9db.cloudfront.net/arrow_black.svg" 
                   alt="Arrow Black" 
                   width={20} 
                   height={20} 

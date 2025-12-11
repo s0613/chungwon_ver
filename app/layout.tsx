@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   description: "첨가물 없이 자연 그대로를 담은 정원농산의 건강한 식품을 만나보세요",
   generator: 'v0.dev',
   icons: {
-    icon: '/chunwonfavicon.svg',
-    shortcut: '/chunwonfavicon.svg',
-    apple: '/chunwonfavicon.svg',
+    icon: 'https://d1tlu55vk9m9db.cloudfront.net/chunwonfavicon.svg',
+    shortcut: 'https://d1tlu55vk9m9db.cloudfront.net/chunwonfavicon.svg',
+    apple: 'https://d1tlu55vk9m9db.cloudfront.net/chunwonfavicon.svg',
   },
   verification: {
     other: {

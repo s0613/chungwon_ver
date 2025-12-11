@@ -14,17 +14,25 @@ const CATEGORIES = [
 const PRODUCTS = {
   raw: [
     {
-      id: "chestnut",
-      name: "상수리",
-      image: "/product/상수리.webp", 
-      description: "도토리 원료",
+      id: "domestic-acorn",
+      name: "국산 도토리",
+      image: "/product/상수리.webp",
+      description: "영주산 도토리 원두",
+      category: "원두",
+      sizes: ["10kg", "20kg", "Bulk"]
+    },
+    {
+      id: "imported-acorn",
+      name: "수입 도토리",
+      image: "https://d1tlu55vk9m9db.cloudfront.net/sangsuri.jpeg",
+      description: "수입 도토리 원두",
       category: "원두",
       sizes: ["10kg", "20kg", "Bulk"]
     },
     {
       id: "rice",
       name: "쌀 재롱이",
-      image: "/rice.webp",
+      image: "https://d1tlu55vk9m9db.cloudfront.net/rice.webp",
       description: "도토리와 함께 넣는 부원료 곡물",
       category: "원두",
       sizes: ["10kg", "20kg", "Bulk"]
@@ -32,7 +40,7 @@ const PRODUCTS = {
     {
       id: "acorn",
       name: "도토리 앙금",
-      image: "/dotori.webp",
+      image: "https://d1tlu55vk9m9db.cloudfront.net/dotori.webp",
       description: "도토리와 쌀재롱이를 갈아 얻은 침전물",
       category: "원두",
       sizes: ["4kg", "10kg", "Bulk"]
@@ -235,7 +243,12 @@ export default function ProductsTabbed() {
 // 제품 카드 컴포넌트
 function ProductCard({ product }: { product: any }) {
   return (
-    <div className="group relative bg-white rounded-lg overflow-hidden hover:shadow-md transition-all duration-300">
+    <a
+      href="https://url.kr/i166og"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative bg-white rounded-lg overflow-hidden hover:shadow-md transition-all duration-300 block"
+    >
       <div className="aspect-square relative overflow-hidden bg-gray-50">
         <Image
           src={product.image}
@@ -265,7 +278,7 @@ function ProductCard({ product }: { product: any }) {
           </div>
         )}
       </div>
-    </div>
+    </a>
   );
 }
 

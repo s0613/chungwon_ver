@@ -5,35 +5,35 @@ import Image from "next/image";
 const productCategories = [
   {
     id: 1,
-    image: "/product3.webp",
-    name: "묵의 주원료",
+    image: "https://d1tlu55vk9m9db.cloudfront.net/product3.webp",
+    name: "주원료",
     sizes: ["10kg", "20kg", "40kg"],
   },
   {
     id: 2,
-    image: "/product1.webp",
-    name: "자연을 담은 건강가루",
+    image: "https://d1tlu55vk9m9db.cloudfront.net/product1.webp",
+    name: "도토리가루(국산, 국내가공, 수입)",
     sizes: ["500g", "800g", "1kg", "Bulk"],
     link: "https://smartstore.naver.com/thedream0807food/products/10393868175",
   },
   {
     id: 3,
-    image: "/product2.webp",
-    name: "간편하게 물에 불리는 말린 묵",
+    image: "https://d1tlu55vk9m9db.cloudfront.net/product2.webp",
+    name: "말린 묵(건조묵, 밥도토리)",
     sizes: ["250g", "500g", "Bulk"],
     link: "https://smartstore.naver.com/thedream0807food/products/10473345729",
   },
   {
     id: 4,
-    image: "/product5.webp",
-    name: "쫀쫀하고 탱탱한 별미식품",
+    image: "https://d1tlu55vk9m9db.cloudfront.net/product5.webp",
+    name: "묵",
     sizes: ["400g", "2kg"],
     link: "https://smartstore.naver.com/thedream0807food/products/10361524571",
   },
   {
     id: 5,
-    image: "/product4.webp",
-    name: "더 맛있게 즐기는 소스",
+    image: "https://d1tlu55vk9m9db.cloudfront.net/product4.webp",
+    name: "소스",
     sizes: ["250g", "600g"],
   },
 ];
@@ -81,7 +81,7 @@ export default function ProductCategories() {
                     {product.sizes.map((size, idx) => (
                       <span
                         key={idx}
-                        className="bg-[#4ADE80] text-white px-4 py-1 rounded-full text-sm font-medium"
+                        className="bg-[#C8D8CD] text-slate-700 px-4 py-1 rounded-full text-sm font-medium"
                       >
                         {size}
                       </span>
@@ -108,7 +108,7 @@ export default function ProductCategories() {
                     {product.sizes.map((size, idx) => (
                       <span
                         key={idx}
-                        className="bg-[#4ADE80] text-white px-4 py-1 rounded-full text-sm font-medium"
+                        className="bg-[#C8D8CD] text-slate-700 px-4 py-1 rounded-full text-sm font-medium"
                       >
                         {size}
                       </span>

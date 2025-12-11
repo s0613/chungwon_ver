@@ -10,7 +10,7 @@ export default function CompanyValues() {
           {/* 원형 이미지: SVG에 텍스트가 포함되어 있음 */}
           <div className="relative w-[360px] h-[360px] lg:w-[720px] lg:h-[720px]">
             <Image
-              src="/Group 151.svg"
+              src="https://d1tlu55vk9m9db.cloudfront.net/Group 151.svg"
               alt="청원농산 경영 철학 인포그래픽"
               fill
               className="object-contain"

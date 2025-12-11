@@ -47,7 +47,7 @@ export default function Header() {
           <div className="flex-shrink-0">
             <Link href="/" className="block">
               <Image
-                src={isActive ? "/logo_black.svg" : "/logo.svg"}
+                src={isActive ? "https://d1tlu55vk9m9db.cloudfront.net/logo_black.svg" : "https://d1tlu55vk9m9db.cloudfront.net/logo.svg"}
                 alt="청원농산 로고"
                 width={160}
                 height={50}

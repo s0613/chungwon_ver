@@ -40,7 +40,7 @@ export default function CustomerServiceTabbed() {
       handle: "@food.healthy_official",
       description: "최신 제품 정보와 건강한 식생활 팁을 확인하세요",
       link: "https://www.instagram.com/food.healthy_official?igsh=aGNheGllcTcwYXI5&utm_source=qr",
-      icon: "/insta.svg",
+      icon: "https://d1tlu55vk9m9db.cloudfront.net/insta.svg",
       color: "bg-gradient-to-r from-purple-500 to-pink-500",
     },
     {
@@ -48,7 +48,7 @@ export default function CustomerServiceTabbed() {
       handle: "청원농산 블로그",
       description: "제품 사용법과 레시피를 자세히 알아보세요",
       link: "https://blog.naver.com/chungwon2810",
-      icon: "/naverblog.svg",
+      icon: "https://d1tlu55vk9m9db.cloudfront.net/naverblog.svg",
       color: "bg-gradient-to-r from-green-400 to-green-600",
     },
   ];
@@ -143,7 +143,7 @@ export default function CustomerServiceTabbed() {
             </CardHeader>
             <CardContent className="text-center">
               <div className="flex items-center justify-center space-x-4 mb-6">
-                <Image src="/call.svg" alt="전화" width={48} height={48} className="text-blue-600" />
+                <Image src="https://d1tlu55vk9m9db.cloudfront.net/call.svg" alt="전화" width={48} height={48} className="text-blue-600" />
                 <div className="text-left">
                   <p className="text-sm text-gray-600">전화번호</p>
                   <p className="text-2xl font-bold text-blue-600">032-818-4168</p>

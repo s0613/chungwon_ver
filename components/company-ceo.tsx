@@ -25,7 +25,7 @@ export default function CompanyCEO() {
           <div className="justify-self-center md:justify-self-end">
             <div className="relative w-[300px] h-[300px] md:w-[360px] md:h-[360px] rounded-2xl bg-slate-200/70 overflow-hidden shadow-sm">
               <Image
-                src="/ceohello.webp"
+                src="https://d1tlu55vk9m9db.cloudfront.net/ceohello.webp"
                 alt="CEO 인사말"
                 fill
                 sizes="(min-width:768px) 360px, 300px"

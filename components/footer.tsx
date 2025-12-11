@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="flex items-center">
             <div className="w-24 h-16">
               <Image
-                src="/logo.svg"
+                src="https://d1tlu55vk9m9db.cloudfront.net/logo.svg"
                 alt="청원농산 로고"
                 width={96}
                 height={64}

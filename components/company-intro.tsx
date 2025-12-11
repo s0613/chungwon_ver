@@ -27,7 +27,7 @@ export default function CompanyIntro() {
         <div className="mt-4 sm:mt-6">
           <div className="relative w-full max-w-[560px] h-[200px] sm:h-[280px] md:h-[350px] lg:h-[420px] rounded-xl sm:rounded-2xl bg-slate-200/70 shadow-sm">
             <Image
-              src="/chungwon3.webp"
+              src="https://d1tlu55vk9m9db.cloudfront.net/chungwon3.webp"
               alt="청원농산 소개 이미지"
               fill
               className="object-cover rounded-xl sm:rounded-2xl"
@@ -41,7 +41,7 @@ export default function CompanyIntro() {
         <div className="mt-8 sm:mt-12">
           <div className="relative w-full h-[300px] sm:h-[420px] md:h-[560px] lg:h-[680px] rounded-xl sm:rounded-2xl bg-slate-200/70 shadow-sm overflow-hidden">
             <video
-              src="/video/introduce.mp4"
+              src="https://d1tlu55vk9m9db.cloudfront.net/video/introduce.mp4"
               className="absolute inset-0 w-full h-full object-cover"
               controls
               playsInline
@@ -56,7 +56,7 @@ export default function CompanyIntro() {
             {/* 원형 이미지: SVG에 텍스트가 포함되어 있음 */}
             <div className="relative w-[200px] h-[200px] sm:w-[280px] sm:h-[280px] md:w-[360px] md:h-[360px] lg:w-[720px] lg:h-[720px]">
               <Image
-                src="/Group 151.svg"
+                src="https://d1tlu55vk9m9db.cloudfront.net/Group 151.svg"
                 alt="청원농산 경영 철학 인포그래픽"
                 fill
                 className="object-contain"

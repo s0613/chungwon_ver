@@ -7,25 +7,25 @@ import Image from "next/image"
 const slides = [
   {
     id: 1,
-    image: "/landing1.jpg",
+    image: "https://d1tlu55vk9m9db.cloudfront.net/landing1.jpg",
     title1: "환경과 안전을",
     title2: "최우선 하는 기업",
   },
   {
     id: 2,
-    image: "/landing2.jpg",
+    image: "https://d1tlu55vk9m9db.cloudfront.net/landing2.jpg",
     title1: "혁신적인 기술로",
     title2: "미래를 선도하는 기업",
   },
   {
     id: 3,
-    image: "/landing3.jpg",
+    image: "https://d1tlu55vk9m9db.cloudfront.net/landing3.jpg",
     title1: "고객과 함께",
     title2: "성장하는 기업",
   },
   {
     id: 4,
-    image: "/landing1.jpg",
+    image: "https://d1tlu55vk9m9db.cloudfront.net/landing1.jpg",
     title1: "품질과 신뢰를",
     title2: "약속하는 기업",
   },
@@ -60,7 +60,7 @@ export default function WhoWeAre() {
               onClick={prevSlide}
               className="w-14 h-14 rounded-full border-gray-300 hover:border-gray-400 hover:bg-gray-50 bg-transparent transition-all duration-200"
             >
-              <Image src="/next-arrow.webp" alt="Previous" width={20} height={20} className="w-5 h-5" />
+              <Image src="https://d1tlu55vk9m9db.cloudfront.net/next-arrow.webp" alt="Previous" width={20} height={20} className="w-5 h-5" />
             </Button>
             <Button
               variant="outline"
@@ -68,7 +68,7 @@ export default function WhoWeAre() {
               onClick={nextSlide}
               className="w-14 h-14 rounded-full border-gray-300 hover:border-gray-400 hover:bg-gray-50 bg-transparent transition-all duration-200"
             >
-              <Image src="/next-arrow.webp" alt="Next" width={20} height={20} className="w-5 h-5" />
+              <Image src="https://d1tlu55vk9m9db.cloudfront.net/next-arrow.webp" alt="Next" width={20} height={20} className="w-5 h-5" />
             </Button>
           </div>
         </div>
@@ -86,7 +86,7 @@ export default function WhoWeAre() {
                 <div key={slide.id} className="flex-shrink-0 w-full">
                   <div className="relative aspect-[3/1] group">
                     <Image
-                      src={slide.image || "/placeholder.svg"}
+                      src={slide.image || "https://d1tlu55vk9m9db.cloudfront.net/placeholder.svg"}
                       alt={`${slide.title1} ${slide.title2}`}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-700"

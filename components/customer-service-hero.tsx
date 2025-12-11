@@ -5,7 +5,7 @@ export default function CustomerServiceHero() {
     <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/landing1.gif"
+          src="https://d1tlu55vk9m9db.cloudfront.net/landing1.gif"
           alt="고객센터"
           fill
           className="object-cover"

@@ -134,7 +134,7 @@ export default function TrustedFoodCompany() {
       <FeatureBlock
         title="식품의 안전한 품질관리"
         imagePosition="left"
-        imageSrc="/productmanage.webp"
+        imageSrc="https://d1tlu55vk9m9db.cloudfront.net/productmanage.webp"
         imageAlt="식품 품질관리 시스템 - 청원농산의 체계적인 품질관리 프로세스"
         body={[
           "(주)청원농산은 원료의 직수입 및 직접 수매 단계부터 생산·출고에 이르기까지 전 과정을 철저히 위생적이고 청결하게 관리하고 있습니다.",
@@ -147,7 +147,7 @@ export default function TrustedFoodCompany() {
         title="친환경 생산"
         imagePosition="right"
         textAlign="left"   // Changed to left alignment
-        imageSrc="/goodproduct.webp"
+        imageSrc="https://d1tlu55vk9m9db.cloudfront.net/goodproduct.webp"
         imageAlt="친환경 식품 생산 - 자연에서 온 건강한 도토리 등 천연 식재료"
         body={[
           "옛말에 \"도토리는 들판을 보고 자란다\"는 속담이 있습니다. 흉년 시절 배고픔을 달래주던 구황식물이자, 재배가 불가능한 자연의 순수한 선물인 도토리는 그 자체로 소중한 자원입니다.",
@@ -159,7 +159,7 @@ export default function TrustedFoodCompany() {
       <FeatureBlock
         title="혁신적 연구개발"
         imagePosition="left"
-        imageSrc="/productdevelop.webp"
+        imageSrc="https://d1tlu55vk9m9db.cloudfront.net/productdevelop.webp"
         imageAlt="혁신적 연구개발 - 청원농산의 식품 연구개발 시설과 기술"
         body={[
           "(주)청원농산은 수백 년간 이어온 한국 전통푸드의 지혜와 건강함을 현대 식문화 속에서 재해석하고자 끊임없는 연구개발에 집중하고 있습니다.",
