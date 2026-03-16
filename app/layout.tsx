@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "청원농산 - 자연 그대로의 건강한 식품",
-  description: "첨가물 없이 자연 그대로를 담은 정원농산의 건강한 식품을 만나보세요",
+  description: "첨가물 없이 자연 그대로를 담은 청원농산의 건강한 식품을 만나보세요",
   generator: 'v0.dev',
   icons: {
     icon: 'https://d1tlu55vk9m9db.cloudfront.net/chunwonfavicon.svg',
